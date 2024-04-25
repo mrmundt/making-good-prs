@@ -1,114 +1,88 @@
 ---
-title: "Using Markdown"
-teaching: 10
-exercises: 2
+title: "Introduction"
+teaching: 5
+exercises: 5
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+::::::::::::::::::::::::::::::::::::::: objectives
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+- "Become familiar with the purpose of PRs."
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::: objectives
+:::::::::::::::::::::::::::::::::::::::: questions
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- "What are Pull Requests (PRs)?"
+- "How do PRs help with software development?"
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+## What are Pull Requests?
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.txt) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
+To borrow from Rachel Garner, "Software developers use pull requests, otherwise
+known as PR, to initiate the process of integrating new code changes into the
+main project repository. Pull requests are sent through git systems, like
+GitLab, GitHub, and BitBucket, to notify the rest of your team that a branch
+or fork is ready to be reviewed."
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
+![](fig/vcs-image.png){alt='Image from Undraw.co for version control visualization'}
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+In other words, PRs are a mechanism for introducing and merging changes
+into a code base in a manner that enables discussion and collaboration.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+In this lesson, students will learn about better practices for GitHub PRs.
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
+## How Pull Requests Fit in the Development Process
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+![](fig/gh-pr-workflow.png){alt='From Freira et al.: Visualization of the GitHub development workflow with PRs'}
 
-::::::::::::::::::::::::::::::::::::: challenge 
+The development workflow can have several different formats; however, a simple
+one is this:
 
-## Challenge 1: Can you do it?
+1. Create a feature branch
+1. Make changes and commit back to the feature branch
+1. Open a Pull request
 
-What is the output of this command?
+## The Benefits of Pull Requests
 
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
+Integrating PRs into the development process has numerous benefits. Some
+of the main ones are:
 
-:::::::::::::::::::::::: solution 
+- _Collaboration_: Pull requests provide a location for other developers to see and comment on proposed changes. This encourages collaboration and discussion.
+- _Reduce risks_: Other team members are able to review proposed changes and make suggestions, find potential risks, etc.
+- _Improve quality_: No one person knows better than a group. Using PRs allows a crowd to get involved and improve the quality of the code.
 
-## Output
+## GitHub Pull Requests
+
+Numerous different merging systems exist - both commercial and open-source,
+integrated and stand-alone.
+
+GitHub integrates branching and merging into their version control system. Every project
+on GitHub can use the integrated pull requests feature.
+
+![](fig/intersect-nav.png){alt='INTERSECT training repository navigation bar'}
+
+To access a repository's PRs, simply navigate to the repository root
+page and click on "Pull requests" in the navigation bar. This will take you to the
+page of all "Open" PRs.
+
+Click on a PR to open it and see its details, plus any discussion.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Browsing Open PRs
+
+Navigate to [https://github.com/spack/spack](https://github.com/spack/spack) and find the pull requests page.
  
-```output
-[1] "This new lesson looks good"
-```
+* How many PRs are currently open?
+* How many have been closed?
+* Who is the author of the top-most PR?
 
-:::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::::::::::::::::::::::: keypoints
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+- "Pull Requests are a way to control the introduction of new content into a shared repository."
+- "Pull Requests enable better collaboration for multiple developers."
 
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can use standard markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-::::::::::::::::::::::::::::::::::::: callout
-
-Callout sections can highlight information.
-
-They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present "asides": 
-content that is not central to the narrative of the lesson,
-e.g. by providing the answer to a commonly-asked question.
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
-
-::::::::::::::::::::::::::::::::::::: keypoints 
-
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-[r-markdown]: https://rmarkdown.rstudio.com/
+::::::::::::::::::::::::::::::::::::::::::::::::::
